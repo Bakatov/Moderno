@@ -9,7 +9,7 @@ let gulp = require('gulp'),
 
 
 gulp.task('sass', function(){
-     return gulp.src('app/scss/style.scss')
+     return gulp.src('app/scss/**/*.scss')
     .pipe(sass({outputStyle: 'compressed'}))
     .pipe(rename({suffix : '.min'}))
     .pipe(autoprefixer({
@@ -21,7 +21,7 @@ gulp.task('sass', function(){
 
 gulp.task('style', function(){
     return gulp.src([
-        'node_modules/normalize.css/normalize.cssg',
+        'node_modules/normalize.css/normalize.css',
         'node_modules/slick-carousel/slick/slick.css',
         'node_modules/magnific-popup/dist/magnific-popup.css'
     ])
