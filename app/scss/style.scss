@@ -438,7 +438,7 @@
 
 .footer {
   background-color: #263238;
-  padding: 115px 0px 99px;
+  padding-top: 115px;
 }
 
 .footer__wrapper {
@@ -529,9 +529,7 @@
     color: #b7c3c8;
   }
 }
-.footer__follow {
-  // width: 100%;
-}
+
 .footer__help {
   max-width: 200px;
 }
@@ -622,4 +620,5 @@
   padding: 33px;
   font-size: 15px;
   color: #919699;
+  border-top: 1px solid #424d53;
 }
