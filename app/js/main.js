@@ -5,6 +5,32 @@ $(function(){
     rating: 5,
     starWidth: "12px",
   });
+  
+
+  $('.icon-th-list').on('click', function(){
+    $('.prodcuts__box').addClass('list');
+    $('.icon-th-list').addClass('active');
+    $(".icon-th-large").removeClass('active');
+  });
+  
+  $(".icon-th-large").on('click' , function(){
+    $('.prodcuts__box').removeClass('list');
+    $(".icon-th-large").addClass('active');
+    $('.icon-th-list').removeClass('active');
+  });
+  
+  
+  
+  $(".js-range-slider").ionRangeSlider({
+    type: "double",
+    min: 0,
+    max: 1000,
+    from: 0,
+    to: 600,
+    prefix: "$"
+});
+
+
   var mixer = mixitup('.prodcuts__wrapper');
 
   $(".slider").slick({
@@ -40,6 +66,7 @@ $(function(){
       },
     ]
   });
+
 
  
 
