@@ -2,16 +2,19 @@
 @import 'fonts';
 
 
+
 .header {
   padding-top: 23px;
   .header__wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 72px;
     .header__inner {
       display: flex;
       align-items: center;
       margin-left: auto;
+      height: 71px;
       .header__help {
         margin-right: 3px;
         & a {
@@ -21,52 +24,156 @@
       }
       .header__phone {
         font-size: 15px;
+        margin-right: 30px;
           & a {
             font-size: 15px;
             color: #546e7a;
           }
         }
-        .header__basket {
-          width: 34px;
-          height: 34px;
-          background-color: #f5f5f5;
-          border-radius: 50%;
-          text-align: center;
-          line-height: 35px;
-          margin-left: 27px;
-          margin-right: 26px;
-        }
+
     }
     .entry {
-      & a {
+      display: flex;
+      height: 71px;
+      margin-top: 36px;
+      .header__circle {
+        &.active {
+          display: block;
+        }
+        display: none;
+        width: 34px;
+        height: 34px;
+        background-color: #f5f5f5;
+        border-radius: 50%;
+        position: relative;
+        &::before {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: #a0a0a0;
+          font-size: 14px;
+        }
+        & + .header__circle {
+          margin-left: 15px;
+        }
+        span {
+          position: absolute;
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          text-align: center;
+          line-height: 15px;
+          right: -3px;
+          top: -9px;
+          font-size: 11px;
+          color: #fff;
+        }
+     }
+      .login,
+      .register,
+      .logout {
+        padding: 9px 0px 10px 0px;
+        background-color: #e74c3c;
+        margin-left: 7px;
         font-size: 12px;
         color: #fff;
         border-radius: 4px;
         width: 72px;
         text-align: center;
+        height: 32px;
+      }
+      .logout {
+        background-color: #e74c3c;
       }
       .login {
-        padding: 11px 0px 10px 0px;
         background-color: #8bc34a;
       }
-      .register {
-        padding: 10px 0px 9px 0px;
-        background-color: #e74c3c;
-        margin-left: 7px;
+      .user {
+        &__inner {
+          margin-left: 20px;
+          margin-right: 29px;
+          display: flex;
+          position: relative;
+          padding-right: 22px;
+          &::before {
+            content: '\f107';
+            font-family: 'icomoon';
+            color: #707070;
+            font-size: 16px;
+            position: absolute;
+            top: 0;
+            right: 0;
+          }
+        }
+        &__img {
+          margin-right: 15px;
+          width: 34px;
+          height: 34px;
+          overflow: hidden;
+          border-radius: 50%;
+        }     
+      }
+      .user__info {
+        
+        .user__name {
+          font-size: 14px;
+          font-weight: 500;
+          color: #222222;
+        }
+        .user__money {
+        font-size: 14px;
+        font-weight: 700;
+        color: #8bc34a;
       }
     }
+  }
+}
+}
+
+.login--off {
+  display: none;
+}
+.logout {
+  display: none;
+  &.login--on {
+    display: block;
+  }
+}
+
+.btn--off {
+  display: none;
+}
+.user__inner {
+  &.btn--off {
+    display: none;
+  }
+}
+
+.notification {
+  span {
+    background-color: #fcb322;
+  }
+}
+.massage {
+  span {
+    background-color: #ef6c00;
+  }
+}
+.basket {
+  span {
+    background-color: #ef6c00;
   }
 }
 
 .header__bottom {
   background-color: #263238;
   padding-top: 23px;
-  margin-top: 16px;
   padding-bottom: 26px;
 }
 .menu {
   display: flex;
-    li +li {
+    li + li {
     margin-left: 38px;
     font-size: 14px;
     color: #fff;
@@ -76,6 +183,17 @@
       color: #fff;
       font-weight: 500;
     }
+}
+
+.header__btn-menu {
+  width: 30px;
+  cursor: pointer;
+  display: none;
+  div {
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+  }
 }
 // header end
 
@@ -136,6 +254,225 @@
     cursor: pointer;
   }
 }
+
+.user__inner {
+  position: relative;
+  height: 53px;
+  &:hover {
+    .user__menu {
+      display: block;
+    }
+  }
+}
+
+.user__btn {
+  display: none;
+}
+
+.basket__box {
+  height: 53px;
+  margin-left: 17px;
+  position: relative;
+  &:hover {
+    .basket__info {
+      display: block;
+    }
+  }
+}
+
+.basket__info {
+  background-color: #ffffff;
+  width: 268px;
+  position: absolute;
+  top: 53px;
+  right: -14px;
+  display: none;
+  .basket__item {
+    display: flex;
+    border: 1px solid #d5d5d5;
+    padding: 20px 0 24px 23px;
+    &-img {
+      margin-right: 15px;
+    }
+  }
+}
+
+.basket__info-total {
+  .basket__total {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 31px 0;
+    margin-bottom: 14px;
+    .total,
+    .total__price {
+      font-size: 16px;
+      font-weight: 700;
+      color: #263238;
+    }
+  }
+  .basket__info-btn {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 13px;
+    a {
+      font-size: 14px;
+      font-weight: 700;
+      color: #f4f6f5;
+      min-height: 35px;
+    }
+    .baskte__btn-card {
+      background-color: #95c85a;
+      padding: 0 23px 0 18px;
+      padding-top: 9px;
+      margin-right: 6px;
+    }
+    .basket__btn-check {
+      background-color: #e85647;
+      padding: 0 14px 0 12px;
+      padding-top: 9px;
+    }
+  }
+}
+
+.baskte__item-inner {
+  .basket__info-title {
+    width: max-content;
+    font-size: 15px;
+    font-weight: 500;
+    color: #263238;
+  }
+  .basket__info-thema {
+    margin: 5px 0;
+  }
+  a {
+    font-size: 12px;
+    color: #84b743;
+  }
+  .basket__info-price {
+    font-size: 15px;
+    font-weight: 500;
+    color: #000000;
+  }
+}
+
+
+
+
+.user__menu {
+  position: absolute;
+  background: #fff;
+  width: 158px;
+  border: 1px solid rgb(204, 204, 204);
+  text-align: left;
+  top: 53px;
+  display: none;
+  li {
+    margin-top: 25px;
+    margin-left: 20px;
+  }
+  li:last-child {
+    margin-bottom: 25px;
+  }
+  li::before {
+    content: '\f054';
+    color: #8bc34a;
+    font-family: 'icomoon';
+  }
+  a {
+    font-size: 12px;
+    color: #546e7a;
+    padding-left: 14px;
+    font-size: 14px;
+  }
+}
+
+.massage__box {
+  position: relative;
+  margin-left: 15px;
+  &:hover {
+    .massage__menu {
+      display: block;
+    }
+  }
+}
+
+.massage__menu {
+  width: 268px;
+  background-color: #fff;
+  border: 1px solid #d3d3d3;
+  position: absolute;
+  top: 53px;
+  right: 0;
+  display: none;
+  .massage__item {
+    display: flex;
+    padding: 19px 30px 10px 22px;
+    min-height: 93px;
+  }
+  .massage__info {
+    margin-left: 20px;
+    margin-right: 58px;
+  }
+  .massage__name a {
+    font-size: 12px;
+    font-weight: 700;
+    color: #263238;
+  }
+  .massage__help a {
+    font-size: 11px;
+    color: #84b743;
+    margin-bottom: 8px;
+    width: max-content;
+  }
+  .massage_data {
+    font-size: 10px;
+    color: #707070;
+  }
+  .massage__icon {
+    margin-top: 10px;
+  }
+}
+
+.notification__box {
+  position: relative;
+  &:hover {
+    .notification__menu {
+      display: block;
+    }
+  }
+}
+
+.notification__menu {
+  background-color: #fff;
+  display: none;
+  position: absolute;
+  top: 53px;
+  right: 0;
+  .notification__item {
+    display: flex;
+    padding: 19px 15px 10px 22px;
+    border: 1px solid #d5d5d5;
+  }
+  .notification__info {
+    margin-left: 20px;
+    margin-right: 52px;
+  }
+  .notification__help a {
+    width: max-content;
+    font-size: 12px;
+    color: #84b743;
+  }
+  .notification__data {
+    font-size: 12px;
+    color: #707070;
+    width: max-content;
+    margin-top: 7px;
+  }
+  .notification__icon {
+    margin-top: 3px;
+  }
+}
+  
 
 
 // prodcuts
@@ -459,6 +796,7 @@
 .footer__wrapper {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .footer__name {
@@ -554,8 +892,10 @@
   margin-bottom: 45px;
   
   .footer__social-link {
+    display: flex;
     li {
       display: inline-block;
+      
     }
     a {
       width: 28px;
@@ -1026,5 +1366,8 @@
       display: block;
     }
   }
-
 }
+
+
+@import 'media';
+
