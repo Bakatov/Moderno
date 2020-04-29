@@ -73,6 +73,30 @@ $('.user__btn').on('click', function(){
 });
 
 
+$('input[type="file"], select').styler();
+
+
+
+
+$('.settings__wrapper .tab').on('click', function(event) {
+  var id = $(this).attr('data-id');
+    $('.settings__wrapper').find('.tab-item').removeClass('active-tab').hide();
+    $('.settings__wrapper .tabs').find('.tab').removeClass('active');
+    $(this).addClass('active');
+    $('#'+id).addClass('active-tab').fadeIn();
+    return false;
+  });
+
+  $('.tab__wrapper .tab').on('click', function(event) {
+    var id = $(this).attr('data-id');
+      $('.tab__wrapper').find('.tab-item').removeClass('active-tab').hide();
+      $('.tab__wrapper .tabs').find('.tab').removeClass('active');
+      $(this).addClass('active');
+      $('#'+id).addClass('active-tab').fadeIn();
+      return false;
+    });
+
+
   var mixer = mixitup('.prodcuts__wrapper');
 
   

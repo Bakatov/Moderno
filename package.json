@@ -9,6 +9,7 @@
   "author": "Vadim Bakatov",
   "license": "ISC",
   "devDependencies": {
+    "@fancyapps/fancybox": "^3.5.7",
     "browser-sync": "^2.26.7",
     "cssmin": "^0.4.3",
     "gulp": "^4.0.2",
@@ -25,6 +26,7 @@
   },
   "dependencies": {
     "gulp-rename": "^2.0.0",
-    "ion-rangeslider": "^2.3.1"
+    "ion-rangeslider": "^2.3.1",
+    "jquery-form-styler": "^2.0.2"
   }
 }
